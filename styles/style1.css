@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Crimson Text', serif;
-  background-color: #D9F5FF;
+  background-color: #DADADA;
   margin: 0px;
 }
 
@@ -15,7 +15,7 @@ div.header {
 
 div.navbar, div.header {
   width: 100%;
-  background-color: #023E52;
+  background-color: #292D2F;
   position: relative;
 }
 
@@ -41,7 +41,7 @@ ul.menubar {
   list-style-type: none;
   padding: 0px 0px 0px 0px;
   margin: 0px auto 0px auto;
-  background-color: #0C89B3;
+  background-color: #454647;
   width: 85%;
   height: 50px;
 }
@@ -63,21 +63,24 @@ ul.menubar li {
 ul.menubar li:first-child {
   padding-left: 10px;
   margin-left: 0px;
+  /*! padding-bottom: 5px; */
 }
 
 ul.menubar li:hover {
-  /*background-color: #05990E;*/
-  background-color: orange;
+  background-color: #CB6012;
+  /*! border\ color: orange; */
 }
 
 li#mysettings {
   background-color: orange;
+  padding-bottom: 0px;
 }
 
 ul.menubar li:last-child {
   float: right;
   margin-right: -1px;
   cursor: pointer;
+  height: 32px;
 }
 
 ul.menubar li#mysettings:hover {
@@ -130,7 +133,7 @@ div.rightcont, div.leftcont {
 div#bluesec {
   width: 100%;
  /* background-color:#0C89B3;*/
-  background-color:#023E52;
+  background-color:#292D2F;
   margin-top: 50px;
   padding-top: 30px;
   min-height: 370px;
@@ -242,11 +245,11 @@ div#inputinfo {
 }
 div#inputinfo, div#calbreak, div#macrobreak {
   min-height:330px;
-  background-color:#023E52;
+  background-color:#292D2F;
 }
 
 div.mainsection p a {
-  color:orange;
+  color:#95928c;
   text-decoration: none;
   font-weight:bold;
 }
@@ -305,9 +308,9 @@ div#macrodef span.question {
 div.defcontainer {
   position:absolute;
   display:none;
-  background-color:#0C89B3;
+  background-color:#FFF;
   color:black;
-  box-shadow: 2px 2px 1px orange;
+  box-shadow: 2px 2px 1px #b4b4b4;
   width: 590px;
   font-size:12px;
   padding: 5px 5px 5px 5px;
@@ -317,7 +320,7 @@ div.defcontainer {
 /* Definition Paragraph Styling */
 div.defcontainer p {
   font-family: 'Oswald', sans-serif;
-  color:white;
+  color:#625f5f;
 }
 
 div.defcontainer p a {
