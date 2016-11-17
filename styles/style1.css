@@ -104,6 +104,7 @@ h3 {
 p {
   margin-left: 10px;
   margin-right: 5px;
+  margin-top: 0px;
 }
 
 div.header h1 {
@@ -307,7 +308,7 @@ div#macrodef span.question {
 div.defcontainer {
   position:absolute;
   display:none;
-  background-color:#686868;
+  background-color:#504F4F;
   color:white;
   box-shadow: 1px 1px 1px #fff;
   width: 590px;
@@ -324,6 +325,13 @@ div.defcontainer p {
 
 div.defcontainer p a {
   color:orange;
+}
+
+span.deschead {
+  color:orange;
+  font-size:15px;
+  margin-left: 9px;
+  margin-bottom: 5px;
 }
 
 
