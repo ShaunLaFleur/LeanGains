@@ -157,7 +157,7 @@ div#inputinfo h1, div#calbreak h1, div#macrobreak h1 {
   display: block;
   margin-bottom: 10px;
   margin-left:0px;
-  border-bottom: 1px solid orange;
+  border-bottom: 1px solid #363636;
   width: 100%;
 }
 /*
@@ -235,12 +235,12 @@ div#calbreak {
   width: 20%;
   float:left;
   margin-left:155px;
-  border-right:1px solid orange;
+  border-right:1px solid #363636;
 }
 div#inputinfo {
   width: 30%;
   float:left;
-  border-right: 1px solid orange;
+  border-right: 1px solid #363636;
 }
 div#inputinfo, div#calbreak, div#macrobreak {
   min-height:330px;
