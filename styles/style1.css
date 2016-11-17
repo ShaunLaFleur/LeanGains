@@ -60,15 +60,14 @@ ul.menubar li {
   height:32px;
   padding:18px 12px 0px 5px;
 }
+
 ul.menubar li:first-child {
   padding-left: 10px;
   margin-left: 0px;
-  /*! padding-bottom: 5px; */
 }
 
-ul.menubar li:hover {
-  background-color: #CB6012;
-  /*! border\ color: orange; */
+ul.menubar li a:hover {
+  border-bottom: solid 4px orange;
 }
 
 li#mysettings {
