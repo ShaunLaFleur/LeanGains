@@ -248,7 +248,7 @@ div#inputinfo, div#calbreak, div#macrobreak {
 }
 
 div.mainsection p a {
-  color:#95928c;
+  color:#fa0;
   text-decoration: none;
   font-weight:bold;
 }
@@ -307,9 +307,9 @@ div#macrodef span.question {
 div.defcontainer {
   position:absolute;
   display:none;
-  background-color:#FFF;
+  background-color:#504B4B;
   color:black;
-  box-shadow: 2px 2px 1px #b4b4b4;
+  box-shadow: 1px 1px 1px #f9f7f7;
   width: 590px;
   font-size:12px;
   padding: 5px 5px 5px 5px;
@@ -319,7 +319,7 @@ div.defcontainer {
 /* Definition Paragraph Styling */
 div.defcontainer p {
   font-family: 'Oswald', sans-serif;
-  color:#625f5f;
+  color:#fff;
 }
 
 div.defcontainer p a {
