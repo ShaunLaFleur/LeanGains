@@ -223,10 +223,13 @@ ul.results li {
   font-family: 'Oswald', sans-serif;
 }
 
+/*
 h1#macros {
   margin:0px;
   position:relative;
 }
+Causing issues for some reason.
+*/
 
 div#macrobreak {
   width: 25%;
@@ -308,9 +311,9 @@ div#macrodef span.question {
 div.defcontainer {
   position:absolute;
   display:none;
-  background-color:#504F4F;
+  background-color:#2A2929;
   color:white;
-  box-shadow: 1px 1px 1px #fff;
+  box-shadow: 1px 1px 1px #333232;
   width: 590px;
   font-size:12px;
   padding: 5px 5px 5px 5px;
@@ -327,11 +330,11 @@ div.defcontainer p a {
   color:orange;
 }
 
-span.deschead {
+h3.deschead {
   color:orange;
   font-size:15px;
-  margin-left: 9px;
-  margin-bottom: 5px;
+  margin: 0px 0px 2px 9px;
+  text-align: left;
 }
 
 
