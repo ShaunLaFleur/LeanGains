@@ -212,7 +212,7 @@ div#inputinfo li, div#calbreak li, div#macrobreak li {
 ul.results, ul.results2 {
   list-style-type: none;
   padding:0px;
-  margin:10px 0px 0px 20px;
+  margin:10px 0px 0px 50px;
 }
 ul.results li {
  /* float: left;*/
@@ -252,7 +252,7 @@ div#inputinfo, div#calbreak, div#macrobreak {
 }
 
 div.mainsection p a {
-  color:#95928c;
+  color:orange;
   text-decoration: none;
   font-weight:bold;
 }
