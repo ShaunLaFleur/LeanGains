@@ -22,6 +22,7 @@ div.navbar, div.header {
 #wrapper {
   width: 85%;
   min-height: 600px;
+  min-width: 1050px;
   margin: 0px auto 20px auto;
   background-color: white;
   border-bottom-left-radius:15px;
@@ -38,6 +39,7 @@ div.secondsec {
 
 /* Navigation Menu */
 ul.menubar {
+  min-width: 1050px;
   list-style-type: none;
   padding: 0px 0px 0px 0px;
   margin: 0px auto 0px auto;
@@ -92,6 +94,10 @@ ul.menubar li#mysettings:hover {
 /*h1.mainheader, div.leftcont h1, div.rightcont */ h1 {
   text-align: center;
   margin: 0px 0px -25px 10px;
+}
+
+h1#calorie-breakdown {
+  padding-right:15px;
 }
 
 h3 {
@@ -197,7 +203,7 @@ form {
 }
 
 #form4, #form1 {
-  padding-left:45px;
+  padding-left:15px;
 }
 
 input {
@@ -232,17 +238,17 @@ Causing issues for some reason.
 */
 
 div#macrobreak {
-  width: 25%;
+  /*! width: 25%; */
   float:left;
 }
 div#calbreak {
-  width: 20%;
+  /*! width: 20%; */
   float:left;
-  margin-left:155px;
+  /*! margin-left:155px; */
   border-right:1px solid #363636;
 }
 div#inputinfo {
-  width: 30%;
+  /*! width: 30%; */
   float:left;
   border-right: 1px solid #363636;
 }
@@ -298,8 +304,8 @@ div.containquest {
 }
 div#macrodef {
   position:absolute;
-  top:-6px;
-  left:60px;
+  top:-7px;
+  left:45px;
   width:5px;
   height:5px;
 }
@@ -331,6 +337,7 @@ div.defcontainer p a {
 }
 
 h3.deschead {
+  font-family: 'Crimson Text', serif;
   color:orange;
   font-size:15px;
   margin: 0px 0px 2px 9px;
@@ -346,4 +353,9 @@ div#defbmr:hover div.defcontainer, div#deftdee:hover div.defcontainer, div#weekc
 span.question {
   font-size:10px;
   color:orange;
+}
+
+div#organize {
+  width: 900px;
+  margin: auto;
 }
