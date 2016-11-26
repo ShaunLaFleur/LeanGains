@@ -9,6 +9,7 @@ body {
 /* Header Bars */
 
 div.header {
+  min-width: 1400px;
   width: 100%;
   padding-bottom: 80px;
 }
@@ -22,7 +23,7 @@ div.navbar, div.header {
 #wrapper {
   width: 85%;
   min-height: 600px;
-  min-width: 1050px;
+  min-width: 1400px;
   margin: 0px auto 20px auto;
   background-color: white;
   border-bottom-left-radius:15px;
@@ -39,7 +40,7 @@ div.secondsec {
 
 /* Navigation Menu */
 ul.menubar {
-  min-width: 1050px;
+  min-width: 1400px;
   list-style-type: none;
   padding: 0px 0px 0px 0px;
   margin: 0px auto 0px auto;
@@ -218,7 +219,7 @@ div#inputinfo li, div#calbreak li, div#macrobreak li {
 ul.results, ul.results2 {
   list-style-type: none;
   padding:0px;
-  margin:10px 0px 0px 50px;
+  margin:10px 0px 0px 30px;
 }
 ul.results li {
  /* float: left;*/
@@ -238,23 +239,20 @@ Causing issues for some reason.
 */
 
 div#macrobreak {
-  /*! width: 25%; */
   float:left;
+  max-width:35%;
 }
 div#calbreak {
-  /*! width: 20%; */
+  max-width:27%;
   float:left;
-  /*! margin-left:155px; */
   border-right:1px solid #363636;
 }
 div#inputinfo {
-  /*! width: 30%; */
   float:left;
   border-right: 1px solid #363636;
 }
 div#inputinfo, div#calbreak, div#macrobreak {
   min-height:330px;
-  background-color:#292D2F;
 }
 
 div.mainsection p a {
@@ -268,8 +266,12 @@ div.mainsection p a:hover {
 
 div#workoutday, div#restday {
     float:left;
-    margin: 0px;
+    margin:0px;
     padding:0px;
+}
+
+div#workoutday {
+  margin-left: -15px;
 }
 
 .subtext {
@@ -302,17 +304,7 @@ div.containquest {
   top:-11px;
   left:-9px;
 }
-div#macrodef {
-  position:absolute;
-  top:-7px;
-  left:45px;
-  width:5px;
-  height:5px;
-}
 
-div#macrodef span.question {
-  font-size:15px;
-}
 
 div.defcontainer {
   position:absolute;
@@ -356,6 +348,6 @@ span.question {
 }
 
 div#organize {
-  width: 900px;
-  margin: auto;
+margin:auto;
+width:930px;
 }
