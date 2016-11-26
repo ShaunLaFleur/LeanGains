@@ -47,6 +47,11 @@ function mySplit(){
 
 function setHeight() {
 	myHeight = parseInt(document.getElementById("height").value);
+	if(isNaN(myHeight)) {
+		myHeight = 0;
+		setDefaults();
+		return;
+	}
 	if(myMeasurement == 1) {
 		myHeight = Math.round(myHeight*2.54);
 	}
@@ -55,6 +60,11 @@ function setHeight() {
 
 function setWeight() {
 	myWeight = parseInt(document.getElementById("weight").value);
+	if(isNaN(myWeight)) {
+		myWeight = 0;
+		setDefaults();
+		return;
+	}
 	if(myMeasurement == 1) {
 		myWeight = Math.round(myWeight/2.2);
 	}
@@ -84,18 +94,7 @@ function setMeasurement() {
 	myBMR = 0;
 	myTDEE = 0;
 
-	//Change Results back to default display:
-	document.getElementById("myBMR").innerHTML = "0kcals";
-	document.getElementById("myTDEE").innerHTML = "0kcals";
-	document.getElementById("cutcals").innerHTML = "0kcals";
-	document.getElementById("bulkcals").innerHTML = "0kcals";
-	document.getElementById("proteinwork").innerHTML = "0grams";
-	document.getElementById("proteinrest").innerHTML = "0grams";
-	document.getElementById("carbswork").innerHTML = "0grams";
-	document.getElementById("carbsrest").innerHTML = "0grams";
-	document.getElementById("fatswork").innerHTML = "0grams";
-	document.getElementById("fatsrest").innerHTML = "0grams"
-	document.getElementById("weekly").innerHTML = "0" */
+ */
 	if(myMeasurement == 2){
 		document.getElementById("weight").value = Math.round(document.getElementById("weight").value/2.2);
 		document.getElementById("height").value = Math.round(document.getElementById("height").value*2.54);
@@ -121,12 +120,31 @@ function setMeasurement() {
 	setCals();
 }
 
+
 function setAge() {
 	myAge = parseInt(document.getElementById("myage").value);
+	if(isNaN(myAge)) {
+		myAge = 0;
+		setDefaults();
+		return;
+	}
 	setCals();
 }
 
-
+function setDefaults() {
+	//Change Results back to default display:
+	document.getElementById("myBMR").innerHTML = "0kcals";
+	document.getElementById("myTDEE").innerHTML = "0kcals";
+	document.getElementById("cutcals").innerHTML = "0kcals";
+	document.getElementById("bulkcals").innerHTML = "0kcals";
+	document.getElementById("proteinwork").innerHTML = "0grams";
+	document.getElementById("proteinrest").innerHTML = "0grams";
+	document.getElementById("carbswork").innerHTML = "0grams";
+	document.getElementById("carbsrest").innerHTML = "0grams";
+	document.getElementById("fatswork").innerHTML = "0grams";
+	document.getElementById("fatsrest").innerHTML = "0grams"
+	document.getElementById("weekly").innerHTML = "0"
+}
 
 
 function setCals() {
