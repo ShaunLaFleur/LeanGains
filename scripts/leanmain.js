@@ -1,6 +1,7 @@
  // To do. Finish dropdowns, make sure their default values set at the top here match their default selected values, and replace numbers with proper variables within the calculation section.
 // And of course, pretty up the HTML and CSS.
 // This script was created after starting the "Odin Project" using only basic knowledge of Javascript, CSS and HTML5.
+// Can probably combine the 3 "setMacro" functions into one by using function parameters to affect the correct elements and dropdowns. This would require that I also create one new(but small) function for each to set each macr to it's current selection and then call the combined function with the correct parameters.
 
 var mySett = document.getElementById("mysettings");
 var myWorkdays = 3;
