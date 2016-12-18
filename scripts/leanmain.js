@@ -1,6 +1,5 @@
- // To do. Finish dropdowns, make sure their default values set at the top here match their default selected values, and replace numbers with proper variables within the calculation section.
-// And of course, pretty up the HTML and CSS.
-// This script was created after starting the "Odin Project" using only basic knowledge of Javascript, CSS and HTML5.
+// This script was created after starting the "Odin Project" using only basic knowledge of Javascript, CSS and HTML5. No knowledge of jquery yet.
+// Javascript will be optimized once I learn more about the scripting language.
 
 var mySett = document.getElementById("mysettings");
 var myWorkdays = 3;
