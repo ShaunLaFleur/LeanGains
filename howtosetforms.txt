@@ -1,9 +1,0 @@
-
-<div> // two forms in a div floated left
-<form>Activity Level</form> - <form>Measurement</form>
-</div>
-
-<div> // 3(3x3) tall forms all floated left
-Height - Weight - Age
-Work Day - Rest Day - Workout Split
-Protein - Carbs - Fats

@@ -3,8 +3,8 @@
 
 var mySett = document.getElementById("mysettings");
 var myWorkdays = 3;
-var workPerc = 1.20; // To be used in place of 1.20. Defines workout day percentage over or under calories. 1.20 = +20%
-var restPerc = 0.80; // To be used in place of 0.80  Defines rest day percentage over or under calories. 0.80 = -20%
+var workPerc = 1.20;
+var restPerc = 0.80;
 var myProtein = 40;
 var myCarbs = 50;
 var myFats = 10;
@@ -24,24 +24,32 @@ window.onload = function() {
 	setMacrosCarb();
 }
 
-function setSex() {
-	mySex = parseInt(document.getElementById("mysex").value);
-	setCals();
-}
+function setStuff(a) {
+	switch(a) {
+		case "mysex":
+			mySex = parseInt(document.getElementById("mysex").value);
+			setCals();
+			break;
+		case "restday":
+			restPerc = parseFloat(document.getElementById("restperc").value);
+			setCals();
+			break;
+		case "workday":
+			workPerc = parseFloat(document.getElementById("workperc").value);
+			setCals();
+			break;
+		case "mysplit":
+			myWorkdays = parseInt(document.getElementById("split").value);
+			setCals();
+			break;
+		case "activity":
+			myActivity = parseFloat(document.getElementById("activity").value);
+			setCals();
+			break;
+		default:
+			break;
+	}
 
-function restdayperc() {
-	restPerc = parseFloat(document.getElementById("restperc").value);
-	setCals();
-}
-
-function workdayperc() {
-	workPerc = parseFloat(document.getElementById("workperc").value);
-	setCals();
-}
-
-function mySplit(){
-	myWorkdays = parseInt(document.getElementById("split").value);
-	setCals();
 }
 
 function setHeight() {
@@ -67,11 +75,6 @@ function setWeight() {
 	if(myMeasurement == 1) {
 		myWeight = Math.round(myWeight/2.2);
 	}
-	setCals();
-}
-
-function setActivity() {
-	myActivity = parseFloat(document.getElementById("activity").value);
 	setCals();
 }
 

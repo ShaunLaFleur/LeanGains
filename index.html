@@ -97,7 +97,7 @@
       <div id="upperforms">
         <form id="form4">
           Sex:<br />
-            <select id="mysex" onchange="setSex()">
+            <select id="mysex" onchange="setStuff('mysex')">
               <option value="1" selected>Male</option>
               <option value="2">Female</option>
             </select>
@@ -134,7 +134,7 @@
             </div>
             Activity Level:
           </div>
-          <select id="activity" onchange="setActivity()">
+          <select id="activity" onchange="setStuff('activity')">
             <option value="1.2">Sedentary</option>
             <option value="1.375" selected>Lightly Active</option>
             <option value="1.55">Moderately Active</option>
@@ -162,7 +162,7 @@
             Workout Day:
           
           </div>
-              <select id="workperc" onchange="workdayperc()">
+              <select id="workperc" onchange="setStuff('workday')">
               <option value="2.00">+100%</option>
               <option value="1.95">+95%</option>
               <option value="1.90">+90%</option>
@@ -258,7 +258,7 @@
         </div>
         Rest Day:
       </div>
-        <select id="restperc" onchange="restdayperc()">
+        <select id="restperc" onchange="setStuff('restday')">
           <option value="2.00">+100%</option>
               <option value="1.95">+95%</option>
               <option value="1.90">+90%</option>
@@ -354,7 +354,7 @@
         </div>
       Workout Split:
       </div>
-        <select id="split" onchange="mySplit()">
+        <select id="split" onchange="setStuff('mysplit')">
           <option value="1">1 on 6 off</option>
           <option value="2">2 on 5 off</option>
           <option value="3" selected>3 on 4 off</option>
