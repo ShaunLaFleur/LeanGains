@@ -18,11 +18,20 @@ var myActivity = 1.375;
 var myResult = 0;
 var myAge = 0;
 
+
+
 window.onload = function() {
 	setMacrosProtein();
 	setMacrosFat();
 	setMacrosCarb();
 }
+
+// Definition Popups
+// BMR Popup
+$("#bmr-quest").hover(function(){
+	$("#bmr-def").toggle();
+});
+
 
 function setStuff(a) {
 	switch(a) {
@@ -112,13 +121,6 @@ function setMeasurement() {
 		document.getElementById("weightType").innerHTML = "lbs";
 		document.getElementById("heightType").innerHTML = "inches";
 	}
-
-/*	//Reset Forms (Not the one this function is called from)
-	document.getElementById("form1").reset();
-	document.getElementById("form2").reset();
-	document.getElementById("form3").reset();
-	document.getElementById("form4").reset();
-	document.getElementById("form6").reset(); */
 	setCals();
 }
 
@@ -197,65 +199,41 @@ mySett.onclick = function() {
 
 
 //======================== Dropdown Functions Below ================================//
-function setMacrosProtein() {
-	myProtein = parseInt(document.getElementById("proteinperc").value);
+$("#fatperc, #proteinperc, #carbperc").change(function(){
+	if($(this).data("name") === "protein") {
+		myProtein = parseInt(document.getElementById("proteinperc").value);
+		var checkOneName = "fatperc";
+		var checkTwoName = "carbperc";
+		var checkOneVal = myFats;
+		var checkTwoVal = myCarbs;
+	} else if($(this).data("name") === "fats") {
+		myFats = parseInt(document.getElementById("fatperc").value);
+		var checkOneName = "proteinperc";
+		var checkTwoName = "carbperc";
+		var checkOneVal = myProtein;
+		var checkTwoVal = myCarbs;
+	} else if($(this).data("name") === "carbs") {
+		myCarbs = parseInt(document.getElementById("carbperc").value);
+		var checkOneName = "fatperc";
+		var checkTwoName = "proteinperc";
+		var checkOneVal = myFats;
+		var checkTwoVal = myProtein;
+	}
 	var removeValue = 101 - (myProtein+myFats+myCarbs);
 	var x = document.getElementById("fatperc").options.length;
 	for(i = 0; i < x; i++) {
 		// Check fatperc
-		if(parseInt(document.getElementById("fatperc").options[i].value)-myFats >= removeValue) { // Subtract because if you already have a value chosen, it is not a part of the max value.
-			document.getElementById("fatperc").options[i].disabled = true;
+		if(parseInt(document.getElementById(checkOneName).options[i].value)-checkOneVal >= removeValue) { // Subtract because if you already have a value chosen, it is not a part of the total value.
+			document.getElementById(checkOneName).options[i].disabled = true;
 		} else {
-				document.getElementById("fatperc").options[i].disabled = false;
+				document.getElementById(checkOneName).options[i].disabled = false;
 			}
 		// Check carbperc
-		if(parseInt(document.getElementById("carbperc").options[i].value)-myCarbs >= removeValue) {
-			document.getElementById("carbperc").options[i].disabled = true;
+		if(parseInt(document.getElementById(checkTwoName).options[i].value)-checkTwoVal >= removeValue) {
+			document.getElementById(checkTwoName).options[i].disabled = true;
 		} else {
-				document.getElementById("carbperc").options[i].disabled = false;
+				document.getElementById(checkTwoName).options[i].disabled = false;
 			}
 	}
 	setCals();
-}
-
-function setMacrosFat(){
-	myFats = parseInt(document.getElementById("fatperc").value);
-	var removeValue = 101 - (myProtein+myFats+myCarbs);
-	var x = document.getElementById("fatperc").options.length;
-	for(i = 0; i < x; i++) {
-		// Check Protein
-		if(parseInt(document.getElementById("proteinperc").options[i].value)-myProtein >= removeValue) {
-			document.getElementById("proteinperc").options[i].disabled = true;
-		} else {
-				document.getElementById("proteinperc").options[i].disabled = false;
-			}
-		// Check carbperc
-		if(parseInt(document.getElementById("carbperc").options[i].value)-myCarbs >= removeValue) {
-			document.getElementById("carbperc").options[i].disabled = true;
-		} else {
-					document.getElementById("carbperc").options[i].disabled = false;
-				}
-	}
-	setCals();
-}
-
-function setMacrosCarb(){
-	myCarbs = parseInt(document.getElementById("carbperc").value);
-	var removeValue = 101 - (myProtein+myFats+myCarbs);
-	var x = document.getElementById("fatperc").options.length;
-	for(i = 0; i < x; i++) {
-		// Check Protein
-		if(parseInt(document.getElementById("proteinperc").options[i].value)-myProtein >= removeValue) {
-			document.getElementById("proteinperc").options[i].disabled = true;
-		} else {
-				document.getElementById("proteinperc").options[i].disabled = false;
-			}
-		// Check fatperc
-		if(parseInt(document.getElementById("fatperc").options[i].value)-myFats >= removeValue) {
-			document.getElementById("fatperc").options[i].disabled = true;
-		} else {
-				document.getElementById("fatperc").options[i].disabled = false;
-			}
-	}
-	setCals();
-}
+});
