@@ -1,5 +1,4 @@
-// This script was created after starting the "Odin Project" using only basic knowledge of Javascript, CSS and HTML5. No knowledge of jquery yet.
-// Javascript will be optimized once I learn more about the scripting language.
+// This script was created after starting the "Odin Project" using only basic knowledge of Javascript(+jQuery), CSS and HTML5.
 
 var mySett = document.getElementById("mysettings");
 var myWorkdays = 3;
@@ -20,16 +19,21 @@ var myAge = 0;
 
 
 
-window.onload = function() {
-	setMacrosProtein();
-	setMacrosFat();
-	setMacrosCarb();
-}
+$(document).ready(function(){
+	setDropDowns("protein");
+	setDropDowns("fats");
+	setDropDowns("carbs");
+});
 
 // Definition Popups
 // BMR Popup
 $("#bmr-quest").hover(function(){
 	$("#bmr-def").toggle();
+});
+
+// TDEE Popup
+$("#tdee-quest").hover(function(){
+	$("#tdee-def").toggle();
 });
 
 
@@ -66,12 +70,11 @@ function setHeight() {
 	if(isNaN(myHeight)) {
 		myHeight = 0;
 		setDefaults();
-		return;
-	}
-	if(myMeasurement == 1) {
+	} else if(myMeasurement == 1) {
 		myHeight = Math.round(myHeight*2.54);
+		setCals();
 	}
-	setCals();
+	
 }
 
 function setWeight() {
@@ -79,12 +82,10 @@ function setWeight() {
 	if(isNaN(myWeight)) {
 		myWeight = 0;
 		setDefaults();
-		return;
-	}
-	if(myMeasurement == 1) {
+			} else if(myMeasurement == 1) {
 		myWeight = Math.round(myWeight/2.2);
+		setCals();
 	}
-	setCals();
 }
 
 function setMeasurement() {
@@ -130,9 +131,9 @@ function setAge() {
 	if(isNaN(myAge)) {
 		myAge = 0;
 		setDefaults();
-		return;
+	} else {
+		setCals();
 	}
-	setCals();
 }
 
 function setDefaults() {
@@ -152,7 +153,7 @@ function setDefaults() {
 
 
 function setCals() {
-	if(myWeight !== 0 && myAge !== 0 && myHeight !== 0 && mySex !== 0) {
+	if(myWeight !== 0 && myAge !== 0 && myHeight !== 0) {
 		if(mySex == 1) {
 			myBMR = Math.round(66 + (13.7*myWeight) + (5*myHeight) - (6.8*myAge));
 		} else if(mySex == 2) {
@@ -161,8 +162,7 @@ function setCals() {
 		myTDEE = Math.round(myBMR*myActivity);
 		document.getElementById("myBMR").innerHTML = myBMR + "kcals";
 		document.getElementById("myTDEE").innerHTML = myTDEE + "kcals";
-	}
-	if(myTDEE !== 0){
+
 		document.getElementById("myTDEE").innerHTML = myTDEE + "kcals";
 		document.getElementById("cutcals").innerHTML = Math.round((myTDEE*restPerc)) + "kcals";
 		document.getElementById("bulkcals").innerHTML = Math.round((myTDEE*workPerc)) + "kcals";
@@ -193,26 +193,32 @@ function setCals() {
 	}
 }
 
-mySett.onclick = function() {
-	alert("Java is good to go!");
-}
-
 
 //======================== Dropdown Functions Below ================================//
 $("#fatperc, #proteinperc, #carbperc").change(function(){
 	if($(this).data("name") === "protein") {
+		setDropDowns("protein");
+	} else if($(this).data("name") === "fats") {
+		setDropDowns("fats");
+	} else if($(this).data("name") === "carbs") {
+		setDropDowns("carbs");
+	}
+});
+	
+function setDropDowns(macro) {
+	if(macro === "protein") {
 		myProtein = parseInt(document.getElementById("proteinperc").value);
 		var checkOneName = "fatperc";
 		var checkTwoName = "carbperc";
 		var checkOneVal = myFats;
 		var checkTwoVal = myCarbs;
-	} else if($(this).data("name") === "fats") {
+	} else if($(this).data("name") === "fats" || macro === "fats") {
 		myFats = parseInt(document.getElementById("fatperc").value);
 		var checkOneName = "proteinperc";
 		var checkTwoName = "carbperc";
 		var checkOneVal = myProtein;
 		var checkTwoVal = myCarbs;
-	} else if($(this).data("name") === "carbs") {
+	} else if($(this).data("name") === "carbs" || macro === "carbs") {
 		myCarbs = parseInt(document.getElementById("carbperc").value);
 		var checkOneName = "fatperc";
 		var checkTwoName = "proteinperc";
@@ -222,13 +228,13 @@ $("#fatperc, #proteinperc, #carbperc").change(function(){
 	var removeValue = 101 - (myProtein+myFats+myCarbs);
 	var x = document.getElementById("fatperc").options.length;
 	for(i = 0; i < x; i++) {
-		// Check fatperc
+		// Check first OTHER(not THIS option) options
 		if(parseInt(document.getElementById(checkOneName).options[i].value)-checkOneVal >= removeValue) { // Subtract because if you already have a value chosen, it is not a part of the total value.
 			document.getElementById(checkOneName).options[i].disabled = true;
 		} else {
 				document.getElementById(checkOneName).options[i].disabled = false;
 			}
-		// Check carbperc
+		// Check second OTHER(not THIS option) options
 		if(parseInt(document.getElementById(checkTwoName).options[i].value)-checkTwoVal >= removeValue) {
 			document.getElementById(checkTwoName).options[i].disabled = true;
 		} else {
@@ -236,4 +242,4 @@ $("#fatperc, #proteinperc, #carbperc").change(function(){
 			}
 	}
 	setCals();
-});
+}
