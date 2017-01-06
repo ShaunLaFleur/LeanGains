@@ -21,7 +21,6 @@
      <li><a href="http://www.leangains.com/">LeanGains Home</a></li>
      <li><a href="http://www.leangains.com/2010/04/leangains-guide.html">LeanGains Guide</a></li>
      <li><a href="http://www.reddit.com/r/leangains">LeanGains Subreddit</a></li>
-     <li class="about" id="mysettings">Java Check</li>
     </ul>
   </div>
 <div id="wrapper">
@@ -33,9 +32,6 @@
     <div class="condiv"></div>
 
     <p>Lean Gains is a diet that was made popular by <a href="http://www.leangains.com/p/bio.html">Martin Berkhan</a>. It is a diet and workout methodology in which a person cycles high calorie and low calorie days while also cycling macro-nutrient(Carbs, Fats & Protein) intake. The diet also utilizes <a href="https://en.wikipedia.org/wiki/Intermittent_fasting">Intermittent Fasting</a> or "IF" for short, which consists of a period of fasting and a period of feasting, typically done by first fasting for sixteen hours and then eating your days worth of calories in an eight our window. The goal of Lean Gains is to create an environment that is favorable for body composition during all phases of dieting, be it gaining weight, losing weight or body recomposition. Different variations of this diet exist, but they all include some form of intermittent fasting and usually calorie and macro-nutrient cycling as well. You can read more about the diet at <a href="http://www.leangains.com">leangains.com</a> and use the calculator below to determine your daily calorie and macro-nutrient goals.</p>
-
-    <p><em>Using the calculator:</em> To use the calculator, simply fill out the forms below and the results will update automatically when adequate information is provided. The calculator is very flexible and can be used for virtually any diet. If you do not wish to calorie cycle and would rather eat a set amount of calories each day and follow a basic diet, simply select the same percentage value for both "Workout Day" and "Rest Day"(note that the Workout Split dropdown will no longer affect the results since you will be eating the same amount of calories regardless of if you workout or not). If you do not understand some of the terms used below, simply hover over the question mark near the term for a brief definition.
-    </p>
     <div class="condiv"></div>
   </div>
 
@@ -44,31 +40,24 @@
   <div id="organize">
 <!-- Calorie Breakdown DIV Start -->
     <div id="calbreak">
-      <h1 id="calorie-breakdown">Calorie Breakdown</h1>
+      <h3 class="section-header">Calorie Breakdown</h3>
         <ul class="results">
           <li>
-            <div class="containall">
-              <div id="defbmr" class="containquest">
-                <span class="question">?</span>
-                <div class="defcontainer">
-                  <h3 class="deschead">Basal Metabolic Rate</h3>
-                  <p>Your basal metabolic rate (BMR) is defined as the rate at which your body uses energy when you are resting in order to keep vital functions going such as breathing. The rate at which your body uses energy to breath and stay warm is an example of your basal metabolic rate.</p>
-                </div>
-              </div>
+            <span class="question" id="bmr-quest">?</span>
+            <div id="bmr-def" class="defcontainer">
+              <h3 class="deschead">Basal Metabolic Rate</h3>
+              <p>Your basal metabolic rate (BMR) is defined as the rate at which your body uses energy when you are resting in order to keep vital functions going such as breathing. The rate at which your body uses energy to breath and stay warm is an example of your basal metabolic rate.</p>
             </div>
             BMR: <span id="myBMR" class="subtext">0kcals</span>
           </li>
           <li>
-            <div class="containall">
-              <div id="deftdee" class="containquest">
-                <span class="question">?</span>
-                <div class="defcontainer">
-                  <h3 class="deschead">Total Daily Energy Expenditure</h3>
-                  <p>This is the quantity of calories you actually burn in a day.
+              <span id="tdee-quest" class="question">?</span>
+              <div id="tdee-def" class="defcontainer">
+                <h3 class="deschead">Total Daily Energy Expenditure</h3>
+                <p>This is the quantity of calories you actually burn in a day.
                   The TDEE is calculated by multiplying the BMR and the Activity multiplier: TDEE = BMR x Activity multiplier.</p>
-                </div>
               </div>
-            </div>
+
             TDEE: <span id="myTDEE" class="subtext">0kcals</span>
           </li>
           <li>Rest Day: <span id="cutcals" class="subtext">0kcals</span></li>
@@ -93,8 +82,7 @@
 
      <!-- Input Section DIV Start -->
     <div id="inputinfo">
-      <h1>Personalize</h1>
-
+      <h3 class="section-header">User Customization</h3>
       <div id="upperforms">
         <form id="form4">
           Sex:<br />
@@ -219,7 +207,7 @@
             </div>
             Protein:
           </div>
-          <select id="proteinperc" onchange="setMacrosProtein()">
+          <select id="proteinperc" data-name="protein">
             <option value="0">0%</option>
             <option value="5">5%</option>
             <option value="10">10%</option>
@@ -315,7 +303,7 @@
           </div>
           Carbs:
         </div>
-        <select id="carbperc" onchange="setMacrosCarb()">
+        <select id="carbperc" data-name="carbs">
           <option value="0">0%</option>
           <option value="5">5%</option>
           <option value="10">10%</option>
@@ -378,7 +366,7 @@
           </div>
           Fats:
         </div>
-        <select id="fatperc" onchange="setMacrosFat()">
+        <select id="fatperc" data-name="fats">
           <option value="0">0%</option>
           <option value="5">5%</option>
           <option value="10" selected>10%(Rec.)</option>
@@ -413,9 +401,7 @@
 
     <!-- Macro Breakdown DIV Start -->
     <div id="macrobreak">
-        <h1 id="macros">
-          Macro Breakdown
-        </h1>
+      <h3 class="section-header">Macro Breakdown</h3>
       <!-- Rest Day DIV Start -->
       <div id="restday">
         <ul class="results">
