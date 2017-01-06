@@ -36,6 +36,47 @@ $("#tdee-quest").hover(function(){
 	$("#tdee-def").toggle();
 });
 
+// Weekly Popup
+$("#weekly-quest").hover(function(){
+	$("#weekly-def").toggle();
+});
+
+// Activity Level Popup
+$("#activity-quest").hover(function(){
+	$("#activity-def").toggle();
+});
+
+// Workout Split Popup
+$("#split-quest").hover(function(){
+	$("#split-def").toggle();
+});
+
+// Workout Day Popup
+$("#workday-quest").hover(function(){
+	$("#workday-def").toggle();
+});
+
+// Rest Day Popup
+$("#restday-quest").hover(function(){
+	$("#restday-def").toggle();
+});
+
+// Protein Percentage Popup
+$("#protein-quest").hover(function(){
+	$("#protein-def").toggle();
+});
+
+// Carbs Percentage Popup
+$("#carbs-quest").hover(function(){
+	$("#carbs-def").toggle();
+});
+
+// Fats Percentage Popup
+$("#fats-quest").hover(function(){
+	$("#fats-def").toggle();
+});
+
+
 
 function setStuff(a) {
 	switch(a) {
@@ -90,37 +131,18 @@ function setWeight() {
 
 function setMeasurement() {
 	myMeasurement = parseInt(document.getElementById("measurement").value);
-/*	// Return Values Back to Default
-	myProtein = 40;
-	myCarbs = 50;
-	myFats = 10;
-	myHeight = 0;
-	myWeight = 0;
-	myResult = 0;
-	myAge = 0;
-	myActivity = 1.375;
-	workPerc = 1.80;
-	restPerc = 0.80;
-	myWorkdays = 3;
-	mySex = 1;
-	myBMR = 0;
-	myTDEE = 0;
-
- */
 	if(myMeasurement == 2){
 		document.getElementById("weight").value = Math.round(document.getElementById("weight").value/2.2);
 		document.getElementById("height").value = Math.round(document.getElementById("height").value*2.54);
 
-		document.getElementById("poundorkg").innerHTML = "kgs";
-		document.getElementById("weightType").innerHTML = "kgs";
-		document.getElementById("heightType").innerHTML = "cm";
+		$("#poundorkg, #weightType").html("kgs");
+		$("#heightType").html("cm");
 	} else if(myMeasurement == 1) {
 		document.getElementById("weight").value = Math.round(document.getElementById("weight").value*2.2);
 		document.getElementById("height").value = Math.round(document.getElementById("height").value*0.39);
 
-		document.getElementById("poundorkg").innerHTML = "lbs";
-		document.getElementById("weightType").innerHTML = "lbs";
-		document.getElementById("heightType").innerHTML = "inches";
+		$("#poundorkg, #weightType").html("lbs");
+		$("#heightType").html("inches");
 	}
 	setCals();
 }
@@ -138,17 +160,9 @@ function setAge() {
 
 function setDefaults() {
 	//Change Results back to default display:
-	document.getElementById("myBMR").innerHTML = "0kcals";
-	document.getElementById("myTDEE").innerHTML = "0kcals";
-	document.getElementById("cutcals").innerHTML = "0kcals";
-	document.getElementById("bulkcals").innerHTML = "0kcals";
-	document.getElementById("proteinwork").innerHTML = "0grams";
-	document.getElementById("proteinrest").innerHTML = "0grams";
-	document.getElementById("carbswork").innerHTML = "0grams";
-	document.getElementById("carbsrest").innerHTML = "0grams";
-	document.getElementById("fatswork").innerHTML = "0grams";
-	document.getElementById("fatsrest").innerHTML = "0grams"
-	document.getElementById("weekly").innerHTML = "0"
+	$("#myBMR, #myTDEE, #cutcals, #bulkcals").html("0kcals");
+	$("#proteinwork, #proteinrest, #carbswork, #carbsrest, #fatswork, #fatsrest").html("0grams");
+	$("#weekly").html("0");
 }
 
 

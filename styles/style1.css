@@ -38,10 +38,24 @@ div.secondsec {
   min-height:459px;
 }
 
+ul {
+  list-style-type: none;
+}
+
+ul.form-list {
+  float:left;
+  margin-left: -25px;
+  position:relative;
+}
+
+ul.form-list li {
+  margin: 0px 0px 5px 0px;
+  position:relative;
+}
+
 /* Navigation Menu */
 ul.menubar {
   min-width: 1400px;
-  list-style-type: none;
   padding: 0px 0px 0px 0px;
   margin: 0px auto 0px auto;
   background-color: #454647;
@@ -70,7 +84,7 @@ ul.menubar li:first-child {
 }
 
 ul.menubar li a:hover {
-  border-bottom: solid 4px orange;
+  border-bottom: solid 6px orange;
 }
 
 li#mysettings {
@@ -207,7 +221,6 @@ div#macrobreak {
   float:left;
   min-width: 250px;
   /* max-width:35%; */
-  border: 1px solid #ececec;
 }
 div#calbreak {
   /* max-width:27%; */
@@ -215,16 +228,20 @@ div#calbreak {
   float:left;
   /* border-right:1px solid #363636; */
   margin-right:  10px;
-  border: 1px solid #c7c7c7;
 }
 div#inputinfo {
   float:left;
   border: 1px solid #f1f1f1;
   margin-right: 10px;
-  /* border-right: 1px solid #363636; */
+  min-width: 370px;
 }
 div#inputinfo, div#calbreak, div#macrobreak {
-  min-height: 250px;
+  min-height: 270px;
+  border: 5px solid #454647;
+}
+
+#calorie-percentage {
+  display: none;
 }
 
 div.mainsection p a {
@@ -273,13 +290,13 @@ div.containall {
 /* Question Mark Positioning */
 
 div.defcontainer {
+  border: 2px solid white;
   position:absolute;
   display:none;
   background-color: #292d2f;
   color:white;
   /* box-shadow: 1px 1px 1px #333232; */
   width: 590px;
-  border:  1px solid white;
   font-size:12px;
   padding: 5px 5px 5px 5px;
   z-index: 50;

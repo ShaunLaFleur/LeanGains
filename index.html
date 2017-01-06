@@ -63,17 +63,14 @@
           <li>Rest Day: <span id="cutcals" class="subtext">0kcals</span></li>
           <li>Workout Day: <span id="bulkcals" class="subtext">0kcals</span></li>
           <li>
-            <div class="containall">
-              <div id="weekchange" class="containquest">
-                <span class="question">?</span>
-                <div class="defcontainer">
-                  <h3 class="deschead">Weekly Bodyweight Change</h3>
-                  <p>
-                  This shows how much your body weight will change if you follow the diet shown here. 
-                  Fiddle with the diet settings until you get a result that fits your goals.
-                  </p>
-                </div>
-              </div>
+            <span id="weekly-quest" class="question">?</span>
+            <div id="weekly-def" class="defcontainer">
+              <h3 class="deschead">Weekly Bodyweight Change</h3>
+              <p>
+                This shows how much your body weight will change if you follow the diet shown here. 
+                Fiddle with the diet settings until you get a result that fits your goals.
+              </p>
+            </div>
             Weekly Change: <span class="subtext" id="weekly">0</span><span class="subtext" id="poundorkg">lbs</span>
           </li>
         </ul>
@@ -83,75 +80,32 @@
      <!-- Input Section DIV Start -->
     <div id="inputinfo">
       <h3 class="section-header">User Customization</h3>
-      <div id="upperforms">
-        <form id="form4">
-          Sex:<br />
+      <form>
+        <ul class="form-list">
+          <li>
+            Sex:
+            <br>
             <select id="mysex" onchange="setStuff('mysex')">
               <option value="1" selected>Male</option>
               <option value="2">Female</option>
             </select>
-        </form>
+          </li>
 
-        <form id="form5">
-          Measurement:<br />
-          <select id="measurement" onchange="setMeasurement()">
-            <option value="1" selected>Imperial</option>
-            <option value="2">Metric</option>
-          </select>
-        </form>
+          <li>
+            Height (<span id="heightType">inches</span>):
+            <br>
+            <input id="height" type="text" oninput="setHeight()" />
+          </li>
 
-        <form id="form6">
-          <div class="containall">
-            <div id="activitydef" class="containquest">
-              <span class="question">?</span>
-              <div class="defcontainer">
-                <h3 class="deschead">Activity Level</h3>
-                <p>The physical activity level (PAL) is a way to express a person's daily physical activity as a number, and is used to estimate a person's total energy expenditure. 
-                In combination with the basal metabolic rate, it can be used to compute the amount of food energy a person needs to consume in order to maintain a particular lifestyle.
-                <br /><br />
-                <a>Sedentary:</a> A person who is rarely active, such as someone working an office job for the majority of their day.<br />
-
-                <a>Lightly Active:</a> A person performing light exercise or sports 1-3 times per week.<br />
-
-                <a>Moderately Active:</a> A person performing moderate exercise or sports 3-5 times per week.<br />
-
-                <a>Very Active:</a> A person performing intense exercise or sports 6-7 times per week.<br />
-
-                <a>Extremely Active:</a> A person performing very intense exercise or sports every day who also has a physically demanding job.
-                </p>
-              </div>
-            </div>
-            Activity Level:
-          </div>
-          <select id="activity" onchange="setStuff('activity')">
-            <option value="1.2">Sedentary</option>
-            <option value="1.375" selected>Lightly Active</option>
-            <option value="1.55">Moderately Active</option>
-            <option value="1.725">Very Active</option>
-            <option value="1.9">Extremely Active</option>
-          </select>
-        </form>
-      </div>
-
-      <div style="clear:both"></div>
-
-      <div id="lowerforms">
-        <form id="form1">
-          Height (<span id="heightType">inches</span>):<br />
-          <input id="height" type="text" oninput="setHeight()" /> <br /><br />
-
-          <div class="containall">
-            <div id="workdaydef" class="containquest">
-              <span class="question">?</span>
-              <div class="defcontainer">
-                <h3 class="deschead">Workout Day Calories</h3>
-                <p>The percentage of calories that you will eat above or below your calorie requirements on workout days. For example, +20% would mean that you would eat 20% over your daily calorie requirements on workout days.</p>
-              </div>
+          <li>
+            <span id="workday-quest" class="question">?</span>
+            <div id="workday-def" class="defcontainer">
+              <h3 class="deschead">Workout Day Calories</h3>
+              <p>The percentage of calories that you will eat above or below your calorie requirements on workout days. For example, +20% would mean that you would eat 20% over your daily calorie requirements on workout days.</p>
             </div>
             Workout Day:
-          
-          </div>
-              <select id="workperc" onchange="setStuff('workday')">
+            <br>
+            <select id="workperc" onchange="setStuff('workday')">
               <option value="2.00">+100%</option>
               <option value="1.95">+95%</option>
               <option value="1.90">+90%</option>
@@ -193,62 +147,72 @@
               <option value="0.10">-90%</option>
               <option value="0.05">-95%</option>
               <option value="0.00">-100%</option>
-            </select><br /><br />
+            </select>
+          </li>
 
-
-          <div class="containall">
-            <div id="proteindef" class="containquest">
-              <span class="question">?</span>
-              <div class="defcontainer">
+          <li>
+            <span id="protein-quest" class="question">?</span>
+              <div id="protein-def" class="defcontainer">
                 <h3 class="deschead">Protein</h3>
                 <p>The percentage of your calories that will come from protein sources. 40% of total calories from protein sources is typically recommended for a bulking phase or body recomposition. You may want to increase this amount slightly when on a fat loss phase.
                 </p>
               </div>
-            </div>
             Protein:
-          </div>
-          <select id="proteinperc" data-name="protein">
-            <option value="0">0%</option>
-            <option value="5">5%</option>
-            <option value="10">10%</option>
-            <option value="15">15%</option>
-            <option value="20">20%</option>
-            <option value="25">25%</option>
-            <option value="30">30%</option>
-            <option value="35">35%</option>
-            <option value="40" selected>40%(Rec.)</option>
-            <option value="45">45%</option>
-            <option value="50">50%</option>
-            <option value="55">55%</option>
-            <option value="60">60%</option>
-            <option value="65">65%</option>
-            <option value="70">70%</option>
-            <option value="75">75%</option>
-            <option value="80">80%</option>
-            <option value="85">85%</option>
-            <option value="90">90%</option>
-            <option value="95">95%</option>
-            <option value="100">100%</option>
-        </select>
-      </form>
+            <br>
+            <select id="proteinperc" data-name="protein">
+              <option value="0">0%</option>
+              <option value="5">5%</option>
+              <option value="10">10%</option>
+              <option value="15">15%</option>
+              <option value="20">20%</option>
+              <option value="25">25%</option>
+              <option value="30">30%</option>
+              <option value="35">35%</option>
+              <option value="40" selected>40%(Rec.)</option>
+              <option value="45">45%</option>
+              <option value="50">50%</option>
+              <option value="55">55%</option>
+              <option value="60">60%</option>
+              <option value="65">65%</option>
+              <option value="70">70%</option>
+              <option value="75">75%</option>
+              <option value="80">80%</option>
+              <option value="85">85%</option>
+              <option value="90">90%</option>
+              <option value="95">95%</option>
+              <option value="100">100%</option>
+            </select>
+          </li>
+        </ul>
 
-      <form id="form2">
-        Weight (<span id="weightType">lbs</span>):<br />
-        <input id="weight" oninput="setWeight()" /> <br /><br />
+        <ul class="form-list">
+          <li>
+            Measurement:
+            <br>
+            <select id="measurement" onchange="setMeasurement()">
+              <option value="1" selected>Imperial</option>
+              <option value="2">Metric</option>
+            </select>
+          </li>
 
-      <div class="containall">
-        <div id="restdaydef" class="containquest">
-          <span class="question">?</span>
-         <div class="defcontainer">
-          <h3 class="deschead">Rest Day Calories</h3>
-           <p>The percentage of calories that you will eat above or below your calorie requirements on rest days. For example, -20% would mean that you would eat 20% under your daily calorie requirements on rest days.
-            </p>
-          </div>
-        </div>
-        Rest Day:
-      </div>
-        <select id="restperc" onchange="setStuff('restday')">
-          <option value="2.00">+100%</option>
+          <li>
+            Weight (<span id="weightType">lbs</span>):
+            <br>
+            <input id="weight" oninput="setWeight()" />
+          </li>
+
+          <li>
+            <span id="restday-quest" class="question">?</span>
+            <div id="restday-def" class="defcontainer">
+              <h3 class="deschead">Rest Day Calories</h3>
+              <p>
+                The percentage of calories that you will eat above or below your calorie requirements on rest days. For example, -20% would mean that you would eat 20% under your daily calorie requirements on   rest days.
+              </p>
+            </div>
+            Rest Day:
+            <br>
+            <select id="restperc" onchange="setStuff('restday')">
+              <option value="2.00">+100%</option>
               <option value="1.95">+95%</option>
               <option value="1.90">+90%</option>
               <option value="1.85">+85%</option>
@@ -289,110 +253,137 @@
               <option value="0.10">-90%</option>
               <option value="0.05">-95%</option>
               <option value="0.00">-100%</option>
-        </select><br /><br />
+            </select>
+          </li>
 
-        <div class="containall">
-          <div id="carbsdef" class="containquest">
-            <span class="question">?</span>
-              <div class="defcontainer">
-                <h3 class="deschead">Carbohydrates</h3>
-                <p>
-                  The percentage of your calories that will come from carb sources. 50% of total calories from carb sources is typically recommended for a bulking phase or body recomposition. You may want to decrease this amount slightly when on a fat loss phase at the expense of lowering your carb intake.
+          <li>
+            <span id="carbs-quest" class="question">?</span>
+            <div id="carbs-def" class="defcontainer">
+              <h3 class="deschead">Carbohydrates</h3>
+              <p>
+                The percentage of your calories that will come from carb sources. 50% of total calories from carb sources is typically recommended for a bulking phase or body recomposition. You may want to decrease this amount slightly when on a fat loss phase at the expense of lowering your carb intake.
+              </p>
+            </div>
+            Carbs:
+            <br>
+            <select id="carbperc" data-name="carbs">
+              <option value="0">0%</option>
+              <option value="5">5%</option>
+              <option value="10">10%</option>
+              <option value="15">15%</option>
+              <option value="20">20%</option>
+              <option value="25">25%</option>
+              <option value="30">30%</option>
+              <option value="35">35%</option>
+              <option value="40">40%</option>
+              <option value="45">45%</option>
+              <option value="50" selected>50%(Rec.)</option>
+              <option value="55">55%</option>
+              <option value="60">60%</option>
+              <option value="65">65%</option>
+              <option value="70">70%</option>
+              <option value="75">75%</option>
+              <option value="80">80%</option>
+              <option value="85">85%</option>
+              <option value="90">90%</option>
+              <option value="95">95%</option>
+              <option value="100">100%</option>
+            </select>
+          </li>
+        </ul>
+
+        <ul class="form-list">
+          <li>
+            <span id="activity-quest" class="question">?</span>
+            <div id="activity-def" class="defcontainer">
+              <h3 class="deschead">Activity Level</h3>
+                <p>The physical activity level (PAL) is a way to express a person's daily physical activity as a number, and is used to estimate a person's total energy expenditure. 
+                  In combination with the basal metabolic rate, it can be used to compute the amount of food energy a person needs to consume in order to maintain a particular lifestyle.
+                  <br>
+                  <br>
+                  <a>Sedentary:</a> A person who is rarely active, such as someone working an office job for the majority of their day.
+                  <br>
+                  <a>Lightly Active:</a> A person performing light exercise or sports 1-3 times per week.
+                  <br>
+                  <a>Moderately Active:</a> A person performing moderate exercise or sports 3-5 times per week.
+                  <br>
+                  <a>Very Active:</a> A person performing intense exercise or sports 6-7 times per week.
+                  <br>
+                  <a>Extremely Active:</a> A person performing very intense exercise or sports every day who also has a physically demanding job.
                 </p>
               </div>
-          </div>
-          Carbs:
-        </div>
-        <select id="carbperc" data-name="carbs">
-          <option value="0">0%</option>
-          <option value="5">5%</option>
-          <option value="10">10%</option>
-          <option value="15">15%</option>
-          <option value="20">20%</option>
-          <option value="25">25%</option>
-          <option value="30">30%</option>
-          <option value="35">35%</option>
-          <option value="40">40%</option>
-          <option value="45">45%</option>
-          <option value="50" selected>50%(Rec.)</option>
-          <option value="55">55%</option>
-          <option value="60">60%</option>
-          <option value="65">65%</option>
-          <option value="70">70%</option>
-          <option value="75">75%</option>
-          <option value="80">80%</option>
-          <option value="85">85%</option>
-          <option value="90">90%</option>
-          <option value="95">95%</option>
-          <option value="100">100%</option>
-        </select>
-      </form>
+            Activity Level:
+            <br>
+            <select id="activity" onchange="setStuff('activity')">
+              <option value="1.2">Sedentary</option>
+              <option value="1.375" selected>Lightly Active</option>
+              <option value="1.55">Moderately Active</option>
+              <option value="1.725">Very Active</option>
+              <option value="1.9">Extremely Active</option>
+            </select>
+          </li>
 
-      <form id="form3">
-        Age:<br />
-        <input id="myage" oninput="setAge()" /> <br /><br />
+          <li>
+            Age:
+            <br>
+            <input id="myage" oninput="setAge()" />
+          </li>
 
+          <li>
+            <span id="split-quest" class="question">?</span>
+            <div id="split-def" class="defcontainer">
+              <h3 class="deschead">Workout Routine</h3>
+              <p>This defines the amount of days you workout vs the amount of days you rest in a given week. For this calculator, a workout day is defined as a day that you perform <em>weight lifting</em>. "3 on 4 off" would mean that you weight lift 3 days out of the week and rest for the other 4.</p>
+            </div>
+            Workout Split:
+            <br>
+            <select id="split" onchange="setStuff('mysplit')">
+              <option value="1">1 on 6 off</option>
+              <option value="2">2 on 5 off</option>
+              <option value="3" selected>3 on 4 off</option>
+              <option value="4">4 on 3 off</option>
+              <option value="5">5 on 2 off</option>
+              <option value="6">6 on 1 off</option>
+              <option value="7">7 on 0 off</option>
+            </select>
+          </li>
 
-      <div class="containall">
-        <div id="workoutsplitdef" class="containquest">
-          <span class="question">?</span>
-          <div class="defcontainer">
-            <h3 class="deschead">Workout Routine</h3>
-            <p>This defines the amount of days you workout vs the amount of days you rest in a given week. For this calculator, a workout day is defined as a day that you perform <em>weight lifting</em>. "3 on 4 off" would mean that you weight lift 3 days out of the week and rest for the other 4.</p>
-          </div>
-        </div>
-      Workout Split:
-      </div>
-        <select id="split" onchange="setStuff('mysplit')">
-          <option value="1">1 on 6 off</option>
-          <option value="2">2 on 5 off</option>
-          <option value="3" selected>3 on 4 off</option>
-          <option value="4">4 on 3 off</option>
-          <option value="5">5 on 2 off</option>
-          <option value="6">6 on 1 off</option>
-          <option value="7">7 on 0 off</option>
-        </select><br /><br />
-
-
-        <div class="containall">
-          <div id="fatsdef" class="containquest">
-            <span class="question">?</span>
-            <div class="defcontainer">
+          <li>
+            <span id="fats-quest" class="question">?</span>
+            <div id="fats-def" class="defcontainer">
               <h3 class="deschead">Fats</h3>
               <p>
                 The percentage of your calories that will come from fat sources. 10% of total calories from fat sources is typically recommended for a bulking phase or body recomposition. You may want to increase this amount slightly when on a fat loss phase.
-                </p>
+              </p>
             </div>
-          </div>
-          Fats:
-        </div>
-        <select id="fatperc" data-name="fats">
-          <option value="0">0%</option>
-          <option value="5">5%</option>
-          <option value="10" selected>10%(Rec.)</option>
-          <option value="15">15%</option>
-          <option value="20">20%</option>
-          <option value="25">25%</option>
-          <option value="30">30%</option>
-          <option value="35">35%</option>
-          <option value="40">40%</option>
-          <option value="45">45%</option>
-          <option value="50">50%</option>
-          <option value="55">55%</option>
-          <option value="60">60%</option>
-          <option value="65">65%</option>
-          <option value="70">70%</option>
-          <option value="75">75%</option>
-          <option value="80">80%</option>
-          <option value="85">85%</option>
-          <option value="90">90%</option>
-          <option value="95">95%</option>
-          <option value="100">100%</option>
-        </select>
+            Fats:
+            <br>
+            <select id="fatperc" data-name="fats">
+              <option value="0">0%</option>
+              <option value="5">5%</option>
+              <option value="10" selected>10%(Rec.)</option>
+              <option value="15">15%</option>
+              <option value="20">20%</option>
+              <option value="25">25%</option>
+              <option value="30">30%</option>
+              <option value="35">35%</option>
+              <option value="40">40%</option>
+              <option value="45">45%</option>
+              <option value="50">50%</option>
+              <option value="55">55%</option>
+              <option value="60">60%</option>
+              <option value="65">65%</option>
+              <option value="70">70%</option>
+              <option value="75">75%</option>
+              <option value="80">80%</option>
+              <option value="85">85%</option>
+              <option value="90">90%</option>
+              <option value="95">95%</option>
+              <option value="100">100%</option>
+            </select>
+          </li>
+        </ul>
       </form>
-    </div>
-
-    <div style="clear:both"></div>
     </div>
     <!-- Input Section DIV End -->
 
