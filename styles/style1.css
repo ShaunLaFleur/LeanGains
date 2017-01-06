@@ -78,12 +78,6 @@ li#mysettings {
   padding-bottom: 0px;
 }
 
-ul.menubar li:last-child {
-  float: right;
-  margin-right: -1px;
-  cursor: pointer;
-  height: 32px;
-}
 
 ul.menubar li#mysettings:hover {
   background-color: #FFD454;
@@ -106,6 +100,11 @@ h3 {
   margin-left: 15px;
   margin-bottom: -8px;
   color: orange;
+}
+
+h3.section-header {
+  margin: 0px 0px;
+  color:white;
 }
 
 p {
@@ -147,42 +146,7 @@ div#bluesec {
   border-bottom-left-radius:20px;
   border-bottom-right-radius:20px;
 }
-/*
-div.results {
- background-color: #0C89B3;
- padding-top:40px;
-} */
 
-/*
-div.rightcont h1, div.leftcont h1, div.results h1 {
-  color:white;
-}
-*/
-div#inputinfo h1, div#calbreak h1, div#macrobreak h1 {
-  color:white;
-  text-align: center;
-  font-size:28px;
-  display: block;
-  margin-bottom: 10px;
-  margin-left:0px;
-  border-bottom: 1px solid #363636;
-  width: 100%;
-}
-/*
-div.results {
-  width: 95%;
-  margin: 0px auto;
-  background-color:#023E52
-}
-div.results h1 {
-  text-align: center;
-  font-size:25px;
-  display: block;
-  margin-bottom: 10px;
-  margin-left:0px;
-  border-bottom: 1px dotted orange;
-  width: 100%;
-}*/
 
 input, select {
   width: 100px;
@@ -219,7 +183,8 @@ div#inputinfo li, div#calbreak li, div#macrobreak li {
 ul.results, ul.results2 {
   list-style-type: none;
   padding:0px;
-  margin:10px 0px 0px 30px;
+  margin: 10px 10px 0px 15px;
+  position: relative;
 }
 ul.results li {
  /* float: left;*/
@@ -240,19 +205,26 @@ Causing issues for some reason.
 
 div#macrobreak {
   float:left;
-  max-width:35%;
+  min-width: 250px;
+  /* max-width:35%; */
+  border: 1px solid #ececec;
 }
 div#calbreak {
-  max-width:27%;
+  /* max-width:27%; */
+  width: 250px;
   float:left;
-  border-right:1px solid #363636;
+  /* border-right:1px solid #363636; */
+  margin-right:  10px;
+  border: 1px solid #c7c7c7;
 }
 div#inputinfo {
   float:left;
-  border-right: 1px solid #363636;
+  border: 1px solid #f1f1f1;
+  margin-right: 10px;
+  /* border-right: 1px solid #363636; */
 }
 div#inputinfo, div#calbreak, div#macrobreak {
-  min-height:330px;
+  min-height: 250px;
 }
 
 div.mainsection p a {
@@ -299,24 +271,21 @@ div.containall {
   position:relative;
 }
 /* Question Mark Positioning */
-div.containquest {
-  position:absolute;
-  top:-11px;
-  left:-9px;
-}
-
 
 div.defcontainer {
   position:absolute;
   display:none;
-  background-color:#2A2929;
+  background-color: #292d2f;
   color:white;
-  box-shadow: 1px 1px 1px #333232;
+  /* box-shadow: 1px 1px 1px #333232; */
   width: 590px;
+  border:  1px solid white;
   font-size:12px;
   padding: 5px 5px 5px 5px;
   z-index: 50;
+  /* border-radius: 5px; */
 }
+
 
 /* Definition Paragraph Styling */
 div.defcontainer p {
@@ -336,17 +305,12 @@ h3.deschead {
   text-align: left;
 }
 
-
-/* Hover activates each specific definition. */
-div#defbmr:hover div.defcontainer, div#deftdee:hover div.defcontainer, div#weekchange:hover div.defcontainer, div#activitydef:hover div.defcontainer, div#macrodef:hover div.defcontainer, div#workdaydef:hover div.defcontainer, div#restdaydef:hover div.defcontainer, div#workoutsplitdef:hover div.defcontainer, div#proteindef:hover div.defcontainer, div#carbsdef:hover div.defcontainer, div#fatsdef:hover div.defcontainer {
-  display:block;
-}
-
+/* Question Mark Positioning */
 span.question {
   font-size:10px;
   color:orange;
+  position: absolute;
+  left: -10px;
 }
 
-div#organize {
-margin-left: 300px;
-}
+div#organize {margin: 30px 0px 0px 270px;/* width: 65%; *//* margin-left: 300px; *//* margin-top: 50px; *//* text-align: center; *//* margin: auto; */}
