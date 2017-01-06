@@ -113,9 +113,8 @@ function setHeight() {
 		setDefaults();
 	} else if(myMeasurement == 1) {
 		myHeight = Math.round(myHeight*2.54);
-		setCals();
 	}
-	
+	setCals();
 }
 
 function setWeight() {
@@ -125,13 +124,13 @@ function setWeight() {
 		setDefaults();
 			} else if(myMeasurement == 1) {
 		myWeight = Math.round(myWeight/2.2);
-		setCals();
 	}
+	setCals();
 }
 
 function setMeasurement() {
 	myMeasurement = parseInt(document.getElementById("measurement").value);
-	if(myMeasurement == 2){
+	if(myMeasurement == 2) {
 		document.getElementById("weight").value = Math.round(document.getElementById("weight").value/2.2);
 		document.getElementById("height").value = Math.round(document.getElementById("height").value*2.54);
 
