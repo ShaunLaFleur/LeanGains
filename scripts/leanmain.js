@@ -23,6 +23,58 @@ $(document).ready(function(){
 	setDropDowns("protein");
 	setDropDowns("fats");
 	setDropDowns("carbs");
+	$("#advanced-option-div").css("border", "2px solid orange");
+});
+
+// Highlighting on hover
+$("#calbreak").mouseenter(function(){
+	$("#calbreak").css("border", "5px solid orange");
+});
+$("#calbreak").mouseleave(function(){
+	$("#calbreak").css("border", "5px solid #454647");
+});
+
+$("#macrobreak").mouseenter(function(){
+	$("#macrobreak").css("border", "5px solid orange");
+});
+$("#macrobreak").mouseleave(function(){
+	$("#macrobreak").css("border", "5px solid #454647");
+});
+
+$("#inputinfo").mouseenter(function(){
+	$("#inputinfo").css("border", "5px solid orange");
+});
+$("#inputinfo").mouseleave(function(){
+	$("#inputinfo").css("border", "5px solid #454647");
+});
+
+// Calculator Options
+$("#advanced-option").click(function(){
+	$("#macrobreak, #workday-drop, #protein-drop, #carbs-drop, #fats-drop, #split-drop, #restday-drop, #workday-display, #restday-display").show();
+	$("#daily-intake-list, #calintake-display").hide();
+	$("#inputinfo, #calbreak").css("min-height", "270px");
+	$("#advanced-option-div").css("border", "2px solid orange");
+	$("#basic-option-div").css("border", "2px solid white");
+	workPerc = $("#workperc").val();
+	restPerc = $("#restperc").val();
+	setCals();
+});
+
+$("#basic-option").click(function(){
+	$("#macrobreak, #workday-drop, #protein-drop, #carbs-drop, #fats-drop, #split-drop, #restday-drop, #workday-display, #restday-display").hide();
+	$("#daily-intake-list, #calintake-display").show();
+	$("#inputinfo, #calbreak").css("min-height", "220px");
+	$("#basic-option-div").css("border", "2px solid orange");
+	$("#advanced-option-div").css("border", "2px solid white");
+	workPerc = $("#dayintake-drop").val();
+	restPerc = $("#dayintake-drop").val();
+	setCals();
+});
+
+$("#dayintake-drop").change(function(){
+	workPerc = $(this).val();
+	restPerc = $(this).val();
+	setCals();
 });
 
 // Definition Popups
@@ -76,6 +128,10 @@ $("#fats-quest").hover(function(){
 	$("#fats-def").toggle();
 });
 
+// Daily Calorie Intake Popup
+$("#dayintake-quest").hover(function(){
+	$("#dayintake-def").toggle();
+});
 
 
 function setStuff(a) {
@@ -179,6 +235,7 @@ function setCals() {
 		document.getElementById("myTDEE").innerHTML = myTDEE + "kcals";
 		document.getElementById("cutcals").innerHTML = Math.round((myTDEE*restPerc)) + "kcals";
 		document.getElementById("bulkcals").innerHTML = Math.round((myTDEE*workPerc)) + "kcals";
+		document.getElementById("calintake").innerHTML = Math.round((myTDEE*workPerc)) + "kcals";
 		document.getElementById("proteinwork").innerHTML = Math.round((myTDEE*workPerc)/100*myProtein/4) + "grams";
 		document.getElementById("proteinrest").innerHTML = Math.round((myTDEE*restPerc)/100*myProtein/4) + "grams";
 		document.getElementById("carbswork").innerHTML = Math.round((myTDEE*workPerc)/100*myCarbs/4) + "grams";
