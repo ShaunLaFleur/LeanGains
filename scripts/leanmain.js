@@ -27,25 +27,11 @@ $(document).ready(function(){
 });
 
 // Highlighting on hover
-$("#calbreak").mouseenter(function(){
-	$("#calbreak").css("border", "5px solid orange");
+$("#calbreak, #macrobreak, #inputinfo").mouseenter(function(){
+	$(this).css("border", "5px solid orange");
 });
-$("#calbreak").mouseleave(function(){
-	$("#calbreak").css("border", "5px solid #454647");
-});
-
-$("#macrobreak").mouseenter(function(){
-	$("#macrobreak").css("border", "5px solid orange");
-});
-$("#macrobreak").mouseleave(function(){
-	$("#macrobreak").css("border", "5px solid #454647");
-});
-
-$("#inputinfo").mouseenter(function(){
-	$("#inputinfo").css("border", "5px solid orange");
-});
-$("#inputinfo").mouseleave(function(){
-	$("#inputinfo").css("border", "5px solid #454647");
+$("#calbreak, #macrobreak, #inputinfo").mouseleave(function(){
+	$(this).css("border", "5px solid white");
 });
 
 // Calculator Options
