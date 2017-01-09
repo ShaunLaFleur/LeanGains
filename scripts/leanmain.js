@@ -20,9 +20,7 @@ var myAge = 0;
 
 
 $(document).ready(function(){
-	setDropDowns("protein");
-	setDropDowns("fats");
-	setDropDowns("carbs");
+	$("#proteinperc, #fatperc, #carbperc").trigger("change");
 	$("#advanced-option-div").css("border", "2px solid orange");
 });
 
@@ -123,23 +121,23 @@ $("#dayintake-quest").hover(function(){
 function setStuff(a) {
 	switch(a) {
 		case "mysex":
-			mySex = parseInt(document.getElementById("mysex").value);
+			mySex = parseInt($("#mysex").val());
 			setCals();
 			break;
 		case "restday":
-			restPerc = parseFloat(document.getElementById("restperc").value);
+			restPerc = parseFloat($("#restperc").val());
 			setCals();
 			break;
 		case "workday":
-			workPerc = parseFloat(document.getElementById("workperc").value);
+			workPerc = parseFloat($("#workperc").val());
 			setCals();
 			break;
 		case "mysplit":
-			myWorkdays = parseInt(document.getElementById("split").value);
+			myWorkdays = parseInt($("#split").val());
 			setCals();
 			break;
 		case "activity":
-			myActivity = parseFloat(document.getElementById("activity").value);
+			myActivity = parseFloat($("#activity").val());
 			setCals();
 			break;
 		default:
@@ -148,8 +146,8 @@ function setStuff(a) {
 
 }
 
-function setHeight() {
-	myHeight = parseInt(document.getElementById("height").value);
+$("#height").on("change keyup paste", function(){
+	myHeight = parseInt($(this).val());
 	if(isNaN(myHeight)) {
 		myHeight = 0;
 		setDefaults();
@@ -157,10 +155,10 @@ function setHeight() {
 		myHeight = Math.round(myHeight*2.54);
 	}
 	setCals();
-}
+});
 
-function setWeight() {
-	myWeight = parseInt(document.getElementById("weight").value);
+$("#weight").on("change keyup paste", function(){
+	myWeight = parseInt($("#weight").val());
 	if(isNaN(myWeight)) {
 		myWeight = 0;
 		setDefaults();
@@ -168,36 +166,40 @@ function setWeight() {
 		myWeight = Math.round(myWeight/2.2);
 	}
 	setCals();
-}
+});
 
-function setMeasurement() {
-	myMeasurement = parseInt(document.getElementById("measurement").value);
+$("#measurement").change(function(){
+	myMeasurement = parseInt($("#measurement").val());
 	if(myMeasurement == 2) {
-		document.getElementById("weight").value = Math.round(document.getElementById("weight").value/2.2);
-		document.getElementById("height").value = Math.round(document.getElementById("height").value*2.54);
+		//document.getElementById("weight").value = Math.round(document.getElementById("weight").value/2.2);
+		$("#weight").val(Math.round($("#weight").val()/2.2));
+		//document.getElementById("height").value = Math.round(document.getElementById("height").value*2.54);
+		$("#height").val(Math.round($("#height").val()*2.54));
 
 		$("#poundorkg, #weightType").html("kgs");
 		$("#heightType").html("cm");
 	} else if(myMeasurement == 1) {
-		document.getElementById("weight").value = Math.round(document.getElementById("weight").value*2.2);
-		document.getElementById("height").value = Math.round(document.getElementById("height").value*0.39);
+		//document.getElementById("weight").value = Math.round(document.getElementById("weight").value*2.2);
+		$("#weight").val(Math.round($("#weight").val()*2.2));
+		//document.getElementById("height").value = Math.round(document.getElementById("height").value*0.39);
+		$("#height").val(Math.round($("#height").val()*0.39));
 
 		$("#poundorkg, #weightType").html("lbs");
 		$("#heightType").html("inches");
 	}
 	setCals();
-}
+});
 
 
-function setAge() {
-	myAge = parseInt(document.getElementById("myage").value);
+$("#myage").on("change keyup paste", function(){
+	myAge = parseInt($(this).val());
 	if(isNaN(myAge)) {
 		myAge = 0;
 		setDefaults();
 	} else {
 		setCals();
 	}
-}
+});
 
 function setDefaults() {
 	//Change Results back to default display:
@@ -215,19 +217,18 @@ function setCals() {
 			myBMR = Math.round(655 + (9.6*myWeight) + (1.8*myHeight) - (4.7*myAge));
 		}
 		myTDEE = Math.round(myBMR*myActivity);
-		document.getElementById("myBMR").innerHTML = myBMR + "kcals";
-		document.getElementById("myTDEE").innerHTML = myTDEE + "kcals";
+		$("#myBMR").html(myBMR + "kcals");
+		$("#myTDEE").html(myTDEE + "kcals");
 
-		document.getElementById("myTDEE").innerHTML = myTDEE + "kcals";
-		document.getElementById("cutcals").innerHTML = Math.round((myTDEE*restPerc)) + "kcals";
-		document.getElementById("bulkcals").innerHTML = Math.round((myTDEE*workPerc)) + "kcals";
-		document.getElementById("calintake").innerHTML = Math.round((myTDEE*workPerc)) + "kcals";
-		document.getElementById("proteinwork").innerHTML = Math.round((myTDEE*workPerc)/100*myProtein/4) + "grams";
-		document.getElementById("proteinrest").innerHTML = Math.round((myTDEE*restPerc)/100*myProtein/4) + "grams";
-		document.getElementById("carbswork").innerHTML = Math.round((myTDEE*workPerc)/100*myCarbs/4) + "grams";
-		document.getElementById("carbsrest").innerHTML = Math.round((myTDEE*restPerc)/100*myCarbs/4) + "grams";
-		document.getElementById("fatswork").innerHTML = Math.round((myTDEE*workPerc)/100*myFats/9) + "grams";
-		document.getElementById("fatsrest").innerHTML = Math.round((myTDEE*restPerc)/100*myFats/9) + "grams";
+		$("#myTDEE").html(myTDEE + "kcals")
+		$("#cutcals").html(Math.round(myTDEE*restPerc) + "kcals");
+		$("#bulkcals, #calintake").html(Math.round(myTDEE*workPerc) + "kcals");
+		$("#proteinwork").html(Math.round((myTDEE*workPerc)/100*myProtein/4) + "grams");
+		$("#proteinrest").html(Math.round((myTDEE*restPerc)/100*myProtein/4) + "grams");
+		$("#carbswork").html(Math.round((myTDEE*workPerc)/100*myCarbs/4) + "grams");
+		$("#carbsrest").html(Math.round((myTDEE*restPerc)/100*myCarbs/4) + "grams");
+		$("#fatswork").html(Math.round((myTDEE*workPerc)/100*myFats/9) + "grams");
+		$("#fatsrest").html(Math.round((myTDEE*restPerc)/100*myFats/9) + "grams");
 
 		var myRestdays = 7 - myWorkdays; // Will set amount of rest days to 7 minus workout days to be used below. Workout days set by dropdown.
 		// Weekly's formula broken down into segments to make it slightly easier to read and comprehend.
@@ -238,64 +239,59 @@ function setCals() {
 			if(myMeasurement == 2) {
 				myRESULT = myRESULT/2.2;
 			}
-			document.getElementById("weekly").innerHTML = " +" + Math.round(myRESULT*100)/100;
+			$("#weekly").html(" +" + Math.round(myRESULT*100)/100);
 		} else {
 			myRESULT = (myBase - myWeekly)/3500;
 			if(myMeasurement == 2) {
 				myRESULT = myRESULT/2.2;
 			}
-			document.getElementById("weekly").innerHTML = " -" + Math.round(myRESULT*100)/100;
+			$("#weekly").html(" -" + Math.round(myRESULT*100)/100);
 		}
 	}
 }
 
 
-//======================== Dropdown Functions Below ================================//
+
+	
 $("#fatperc, #proteinperc, #carbperc").change(function(){
 	if($(this).data("name") === "protein") {
-		setDropDowns("protein");
-	} else if($(this).data("name") === "fats") {
-		setDropDowns("fats");
-	} else if($(this).data("name") === "carbs") {
-		setDropDowns("carbs");
-	}
-});
-	
-function setDropDowns(macro) {
-	if(macro === "protein") {
-		myProtein = parseInt(document.getElementById("proteinperc").value);
-		var checkOneName = "fatperc";
-		var checkTwoName = "carbperc";
+		myProtein = parseInt($("#proteinperc").val());
+		var checkOneName = "#fatperc";
+		var checkTwoName = "#carbperc";
 		var checkOneVal = myFats;
 		var checkTwoVal = myCarbs;
-	} else if($(this).data("name") === "fats" || macro === "fats") {
-		myFats = parseInt(document.getElementById("fatperc").value);
-		var checkOneName = "proteinperc";
-		var checkTwoName = "carbperc";
+	} else if($(this).data("name") === "fats") {
+		myFats = parseInt($("#fatperc").val());
+		var checkOneName = "#proteinperc";
+		var checkTwoName = "#carbperc";
 		var checkOneVal = myProtein;
 		var checkTwoVal = myCarbs;
-	} else if($(this).data("name") === "carbs" || macro === "carbs") {
-		myCarbs = parseInt(document.getElementById("carbperc").value);
-		var checkOneName = "fatperc";
-		var checkTwoName = "proteinperc";
+	} else if($(this).data("name") === "carbs") {
+		myCarbs = parseInt($("#carbperc").val());
+		var checkOneName = "#fatperc";
+		var checkTwoName = "#proteinperc";
 		var checkOneVal = myFats;
 		var checkTwoVal = myProtein;
 	}
 	var removeValue = 101 - (myProtein+myFats+myCarbs);
-	var x = document.getElementById("fatperc").options.length;
+	var x = $("#fatperc").children().length;
 	for(i = 0; i < x; i++) {
 		// Check first OTHER(not THIS option) options
-		if(parseInt(document.getElementById(checkOneName).options[i].value)-checkOneVal >= removeValue) { // Subtract because if you already have a value chosen, it is not a part of the total value.
-			document.getElementById(checkOneName).options[i].disabled = true;
+		if(parseInt($(checkOneName).children().eq(i).val())-checkOneVal >= removeValue) { // Subtract because if you already have a value chosen, it is not a part of the total value.
+			//document.getElementById(checkOneName).options[i].disabled = true;
+			$(checkOneName).children().eq(i).prop("disabled", true);
 		} else {
-				document.getElementById(checkOneName).options[i].disabled = false;
+				//document.getElementById(checkOneName).options[i].disabled = false;
+				$(checkOneName).children().eq(i).prop("disabled", false);
 			}
 		// Check second OTHER(not THIS option) options
-		if(parseInt(document.getElementById(checkTwoName).options[i].value)-checkTwoVal >= removeValue) {
-			document.getElementById(checkTwoName).options[i].disabled = true;
+		if(parseInt($(checkTwoName).children().eq(i).val())-checkTwoVal >= removeValue) {
+			//document.getElementById(checkTwoName).options[i].disabled = true;
+			$(checkTwoName).children().eq(i).prop("disabled", true);
 		} else {
-				document.getElementById(checkTwoName).options[i].disabled = false;
+				//document.getElementById(checkTwoName).options[i].disabled = false;
+				$(checkTwoName).children().eq(i).prop("disabled", false);
 			}
 	}
 	setCals();
-}
+});
