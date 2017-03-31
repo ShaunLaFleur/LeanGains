@@ -1,5 +1,5 @@
 // This script was created after starting the "Odin Project" using only basic knowledge of Javascript(+jQuery), CSS and HTML5.
-// Testing Smartgit
+
 var mySett = document.getElementById("mysettings");
 var myWorkdays = 3;
 var workPerc = 1.20;
